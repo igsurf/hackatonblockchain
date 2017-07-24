@@ -1,0 +1,16 @@
+{
+  "name": "node-register-atm",
+  "version": "1.0.0",
+  "description": "NodeJS para servir os servicos locais do ATM",
+  "main": "myexpress.js",
+  "scripts": {
+    "test": "node myexpress.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "express": "^4.15.3",
+    "fs": "0.0.1-security"
+  }
+}
