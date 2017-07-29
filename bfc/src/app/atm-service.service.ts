@@ -20,13 +20,14 @@ export class AtmServiceService {
       .catch(res => res)
   }
 
- public postHash(body): Promise<any>{
+  public postHash(body): Promise<any>{
     return this.http.post(this.atmHashUrl, body)
       .toPromise()
       .then(res => res)
       .catch(res => res)
   }
-   public sendBlockChain(body): Promise<any>{
+   
+  public sendBlockChain(body): Promise<any>{
     return this.http.post(this.blcUrl, body)
       .toPromise()
       .then(res => res)
