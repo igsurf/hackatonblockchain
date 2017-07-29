@@ -1,7 +1,8 @@
 // Get the packages we need
-const express       = require('express');
-const MongoClient   = require('mongodb').MongoClient;
-const bodyParser    = require('body-parser');
+const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+let mongoose = require('mongoose');
 
 // Create our Express application
 const app = express();
@@ -21,8 +22,12 @@ var router = express.Router();
 
 // Initial dummy route for testing
 // http://localhost:3000/api
-router.get('/', function(req, res) {
- res.json({ message: 'You are running dangerously low on beer!' });
+router.get('/', function (req, res) {
+    res.json({ message: 'You are running dangerously low on beer!' });
+});
+
+router.get("/consultaDevice", function (request, response) {
+    console.log('teste Consulta Device');
 });
 
 // Register all our routes with /api
