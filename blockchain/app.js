@@ -11,7 +11,6 @@ app.get('/device', (req, res) => {
 
 app.get('/get-device', (req, res) => {
   const list = deviceContract.getDevices.call({from: web3.eth.accounts[0]})
-  const atm = deviceContract.get.call(deviceContract.address, {from: web3.eth.accounts[0]})
 
   res.json(list);
   return res.end();
