@@ -56,34 +56,35 @@
 <section class="col-md-2"></section>
 <section class="col-md-10">
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default">Fabricante</button>
-  <button type="button" class="btn btn-default">Banco</button>
+  <button type="button" class="btn btn-default" (click)="isHidden = true" autofocus>Fabricante</button>
+  <button type="button" class="btn btn-default" (click)="isHidden = false">Banco</button>
 </div>
 <div class="form-group row">
   <label for="example-text-input" class="col-2 col-form-label">Mac Address</label>
   <div class="col-10">
-    <input class="form-control" type="text" value="" id="mac-address">
+    
+    <input class="form-control" type="text" [(ngModel)]="macAddress" id="mac-address" disabled>
   </div>
 </div>
-<div class="form-group row">
+<div class="form-group row" [hidden]="isHidden">
   <label for="example-search-input" class="col-2 col-form-label">Identificador Terminal</label>
   <div class="col-10">
-    <input class="form-control" type="text" value="" id="identificador-terminal">
+    <input class="form-control" type="text" [(ngModel)]="hashAtm" value="" id="identificador-terminal">
   </div>
 </div>
-<div class="form-group row">
+<div class="form-group row" [hidden]="isHidden">
   <label for="example-email-input" class="col-2 col-form-label">Estado</label>
   <div class="col-10">
-    <input class="form-control" type="text" value="" id="estado-terminal">
+    <input class="form-control" type="text" [(ngModel)]="estadoAtm" value="" id="estado-terminal">
   </div>
 </div>
-<div class="form-group row">
+<div class="form-group row" [hidden]="isHidden">
   <label for="example-url-input" class="col-2 col-form-label">Cidade</label>
   <div class="col-10">
-    <input class="form-control" type="text" value="" id="cidade-terminal">
+    <input class="form-control" type="text" [(ngModel)]="cidadeAtm"  value="" id="cidade-terminal">
   </div>
 </div>
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default">Salvar</button>
+  <button type="button" class="btn btn-default" (click)="postarHash()">Salvar</button>
 </div>
 </section>

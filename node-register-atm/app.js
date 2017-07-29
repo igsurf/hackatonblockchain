@@ -6,16 +6,29 @@ var os=require('os');
 
 var app=express();
 
+//enable cors-origin
+app.all('/*', (req, res, next) =>{
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+
+  const allowesHeaders = 'Origin, X-Requested-With, Content-Type, Accept, Cache-Control';
+  res.header('Access-Control-Allow-Headers');
+
+  next();
+});
+
 app.route('/atm/mac-address').get(function(req, res) {
 	var networkInterface;
 	var networkInterfaceList;
 	var macAddress;
 
 	networkInterfaceList = os.networkInterfaces();
+	
 
 	for (const key of Object.keys(networkInterfaceList)) {
 		networkInterface = networkInterfaceList[key][0];
-		if (networkInterface.address != "127.0.0.1") {
+		console.log(networkInterface.address);
+		if (networkInterface.mac != "00:00:00:00:00:00") {
 			macAddress = networkInterface.mac;
 		}
 	}
@@ -67,3 +80,5 @@ app.route('/atm/hash').post(function(req, res) {
 var server = app.listen(3000, function() {
 
 });	
+
+module.exports = app;

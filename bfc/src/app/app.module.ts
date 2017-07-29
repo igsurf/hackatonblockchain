@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ApplicationRoutesComponent } from './routes/application-routes/application-routes.component';
+import { AtmServiceService } from './atm-service.service';
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -10,9 +13,11 @@ import { ApplicationRoutesComponent } from './routes/application-routes/applicat
     ApplicationRoutesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [AtmServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
