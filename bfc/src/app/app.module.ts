@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ApplicationRoutesComponent } from './routes/application-routes/application-routes.component';
 import { AtmServiceService } from './atm-service.service';
 import { HttpModule } from "@angular/http";
+import { AtmsyncComponent } from './atmsync/atmsync.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ApplicationRoutesComponent
+    ApplicationRoutesComponent,
+    AtmsyncComponent
   ],
   imports: [
     BrowserModule,
