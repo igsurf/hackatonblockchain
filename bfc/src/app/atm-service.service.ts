@@ -9,6 +9,7 @@ export class AtmServiceService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private macAddressUrl = 'http://localhost:3000/atm/mac-address';
   private atmHashUrl = 'http://localhost:3000/atm/hash';
+  private blcUrl = 'http://localhost:3002/blockchain/device';
 
   constructor(private http: Http) {}
 
@@ -25,6 +26,14 @@ export class AtmServiceService {
       .then(res => res)
       .catch(res => res)
   }
+   public sendBlockChain(body): Promise<any>{
+    return this.http.post(this.blcUrl, body)
+      .toPromise()
+      .then(res => res)
+      .catch(res => res)
+  }
+
+
   }
  
 

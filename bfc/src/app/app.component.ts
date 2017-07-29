@@ -6,17 +6,17 @@ import {AtmServiceService} from './atm-service.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit{
   public isHidden = true;
 
   constructor(private atmServiceService: AtmServiceService){};
-  submit(event) {
-    console.log("Hello Word");
-  };
+
   macAddress = '';
   hashAtm ='';
   estadoAtm = '';
   cidadeAtm = '';
+  data = '';
   
   ngOnInit(){
     this.atmServiceService.getMac().then(data => {
@@ -25,11 +25,11 @@ export class AppComponent implements OnInit{
     })
   }
 
-  
-
   public postarHash = function(){
     console.log(this.macAddress, this.hashAtm, this.estadoAtm, this.cidadeAtm);
     this.atmServiceService.postHash('',this.hashAtm);
+    this.data= '{ "macAddress": "' + this.macAddress + '","hashAtm": "' + this.hashAtm + '","estadoAtm": "' + this.estadoAtm + '","cidadeAtm":"' + this.cidadeAtm + '"}';
+    this.atmServiceService.sendBlockChain(this.data);
   }
 
   

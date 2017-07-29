@@ -27,7 +27,7 @@ app.route('/atm/mac-address').get(function(req, res) {
 
 	for (const key of Object.keys(networkInterfaceList)) {
 		networkInterface = networkInterfaceList[key][0];
-		console.log(networkInterface.address);
+		
 		if (networkInterface.mac != "00:00:00:00:00:00") {
 			macAddress = networkInterface.mac;
 		}
@@ -60,6 +60,7 @@ app.route('/atm/hash').post(function(req, res) {
 	var hashValue;
 
 	hashFilename = path.dirname(require.main.filename) + '/hash.txt';
+	console.log(path.dirname(require.main.filename) + '/hash.txt');
 
 	if(fs.existsSync(hashFilename)) {
 		res.status(403).send('Hash file already configured in ATM. It is forbidden to re-create the hash file once it was created.');
